@@ -1,0 +1,8 @@
+# Versioning System In Nodejs
+
+*** "express": "^4.18.2"
+
+-> ^ -> Install all Recomonded and Minor Fixes Automatically
+-> 1st Part: 4 -> Major Release / Breaking Update (Risk for old Application)
+-> 2nd Part: 18 -> Recomonded Bug Fix (Security Fix)
+-> 3rd Part: 2 -> Minor Fixes (Optional Update)
