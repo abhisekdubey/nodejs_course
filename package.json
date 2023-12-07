@@ -9,6 +9,7 @@
   "author": "https://github.com/abhisekdubey",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "url": "^0.11.3"
   }
 }
