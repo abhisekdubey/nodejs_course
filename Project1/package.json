@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "devStart": "nodemon index.js"
   },
   "author": "https://github.com/abhisekdubey",
   "license": "ISC",
