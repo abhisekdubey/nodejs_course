@@ -1,0 +1,6 @@
+Date - 1702310542443 : Method - GET : Path - /api/users/98
+Date - 1702310553549 : Method - GET : Path - /api/users
+Date - 1702310593098 : Method - POST : Path - /api/users
+Date - 1702310707606 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702310717032 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702310723297 : IP - ::1 : Method - GET : Path - /api/users/1002

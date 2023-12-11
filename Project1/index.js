@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 8000;
 // Middleware - Plugin
 app.use(express.urlencoded({ extended: false }))
 
+// Middleware
+app.use((req, res, next) => {
+    fs.appendFile('log.txt', `Date - ${Date.now()} : IP - ${req.ip} : Method - ${req.method} : Path - ${req.path}\n`, (err, data) => {
+        next()
+    })
+})
+
 // Routes
 app.get('/api/users', (req, res) => {
     return res.json(users)
