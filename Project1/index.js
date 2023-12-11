@@ -17,6 +17,9 @@ app.use((req, res, next) => {
 
 // Routes
 app.get('/api/users', (req, res) => {
+    console.log(req.headers);
+    // Always ad X to Custom headers
+    res.setHeader('X-Developer', 'Abhisek Dubey')
     return res.json(users)
 })
 
