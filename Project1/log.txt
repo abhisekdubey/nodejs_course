@@ -1,20 +1,13 @@
-Date - 1702310542443 : Method - GET : Path - /api/users/98
-Date - 1702310553549 : Method - GET : Path - /api/users
-Date - 1702310593098 : Method - POST : Path - /api/users
-Date - 1702310707606 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702310717032 : IP - ::1 : Method - GET : Path - /api/users
-Date - 1702310723297 : IP - ::1 : Method - GET : Path - /api/users/1002
-Date - 1702312328858 : IP - ::1 : Method - GET : Path - /api/users/1002
-Date - 1702312352018 : IP - ::1 : Method - GET : Path - /api/users
-Date - 1702312406960 : IP - ::1 : Method - GET : Path - /api/users
-Date - 1702312446024 : IP - ::1 : Method - GET : Path - /api/users
-Date - 1702312725882 : IP - ::1 : Method - GET : Path - /api/users
-Date - 1702314013776 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702314443854 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702314523068 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702314557925 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702314568316 : IP - ::1 : Method - POST : Path - /api/users
-Date - 1702314733212 : IP - ::1 : Method - POST : Path - /api/userss
-Date - 1702314776068 : IP - ::1 : Method - GET : Path - /api/users/1019
-Date - 1702314864212 : IP - ::1 : Method - GET : Path - /api/users/1019
-Date - 1702314881129 : IP - ::1 : Method - GET : Path - /api/users/1003
+Date - 1702399826096 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702400010564 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702400382160 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702400725956 : IP - ::1 : Method - GET : Path - /api/users/1
+Date - 1702400762985 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702400771697 : IP - ::1 : Method - GET : Path - /api/users/65788f5284e76895611c300e
+Date - 1702401061081 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702401070632 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702401098137 : IP - ::1 : Method - DELETE : Path - /api/users/65789425aea755fa4d52b9e8
+Date - 1702401490411 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702401500526 : IP - ::1 : Method - PATCH : Path - /api/users/65788f5284e76895611c300e
+Date - 1702401557498 : IP - ::1 : Method - PATCH : Path - /api/users/65788f5284e76895611c300e
+Date - 1702401567817 : IP - ::1 : Method - PATCH : Path - /api/users/65788f5284e76895611c300e

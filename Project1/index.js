@@ -1,9 +1,42 @@
 const express = require('express');
-const users = require('./MOCK_DATA.json');
+require('dotenv').config();
+const mongoose = require('mongoose');
 const fs = require('fs');
 
 const app = express()
 const PORT = process.env.PORT || 8000;
+
+// mongo connection
+mongoose.connect(`${process.env.MONGODB_URI}/nodejs`)
+    .then(() => console.log('MongoDB connected!'))
+    .catch(err => console.log("MongoDB connection error : ", err))
+
+// Schema
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    jobTitle: {
+        type: String,
+    },
+    gender: {
+        type: String,
+    },
+}, {
+    timestamps: true
+})
+
+// Model
+const User = mongoose.model("user", userSchema)
 
 // Middleware - Plugin
 app.use(express.urlencoded({ extended: false }))
@@ -16,92 +49,65 @@ app.use((req, res, next) => {
 })
 
 // Routes
-app.get('/api/users', (req, res) => {
-    console.log(req.headers);
-    // Always ad X to Custom headers
+app.get('/api/users', async (req, res) => {
+    const allDbUser = await User.find({})
     res.setHeader('X-Developer', 'Abhisek Dubey')
-    return res.json(users)
+    return res.json(allDbUser)
 })
 
 // merge common similar route or grouping
 app.route('/api/users/:id')
-    .get((req, res) => {
-        const id = Number(req.params.id);
-        const user = users.find(user => user.id === id)
+    .get(async (req, res) => {
+        const user = await User.findById(req.params.id)
         if (!user) return res.status(404).json({ error: 'User not found!' })
         return res.json(user)
     })
-    .patch((req, res) => {
-        const id = Number(req.params.id);
-        const userIndex = users.findIndex(user => user.id === id)
-        if (userIndex === -1) {
-            return res.status(404).json({
-                status: 'error',
-                message: 'User not found',
-            });
-        }
+    .patch(async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
-        const user = users[userIndex];
-        const updatedUser = { ...user, ...req.body };
-        users[userIndex] = updatedUser;
+            if (!user) {
+                return res.status(404).json({
+                    status: 'error',
+                    message: 'User not found',
+                });
+            }
 
-        fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
             return res.json({
                 status: 'success',
                 message: 'User updated successfully',
-                user: updatedUser,
+                user: user,
             });
-        })
+        } catch (error) {
+            return res.status(500).json({
+                status: 'error',
+                message: 'Internal Server Error',
+            });
+        }
     })
-    .delete((req, res) => {
-        const id = req.params.id;
-        const userIndex = users.findIndex(user => user.id === id)
-        users.pop(userIndex)
-        fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
-            return res.json({
-                status: 'success',
-                message: 'User Deleted successfully',
-            });
-        })
+    .delete(async (req, res) => {
+        await User.findByIdAndDelete(req.params.id)
+        return res.json({
+            status: 'success',
+            message: 'User Deleted successfully',
+        });
     })
 
-// app.get('/api/users/:id', (req, res) => {
-//     const id = Number(req.params.id);
-//     const user = users.find(user => user.id === id)
-//     return res.json(user)
-// })
-
-app.post('/api/users', (req, res) => {
+app.post('/api/users', async (req, res) => {
     const body = req.body;
     if (!body || !body.first_name || !body.email || !body.gender || !body.job_title) {
         return res.status(400).json({ message: 'All field are required!' })
     }
-    users.push({ id: users.length + 1, ...body })
-    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
-        return res.status(201).json({
-            // TODO: Create new user
-            status: 'success',
-            id: users.length
-        })
+
+    const result = await User.create({
+        firstName: body.first_name,
+        lastName: body.last_name,
+        email: body.email,
+        gender: body.gender,
+        jobTitle: body.job_title
     })
+
+    return res.status(201).json({ message: 'success' })
 })
-
-// app.patch('/api/users/:id', (req, res) => {
-//     const id = req.params.id;
-//     const user = users.find(user => user.id === id)
-//     return res.json({
-//         // TODO: Edit existing user with id
-//         status: 'pending'
-//     })
-// })
-
-// app.delete('/api/users/:id', (req, res) => {
-//     const id = req.params.id;
-//     const user = users.find(user => user.id === id)
-//     return res.json({
-//         // TODO: Delete user with id
-//         status: 'pending'
-//     })
-// })
 
 app.listen(PORT, () => console.log(`Server Started at Port number ${PORT}`))

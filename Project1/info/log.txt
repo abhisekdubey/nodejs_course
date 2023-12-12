@@ -1,0 +1,20 @@
+Date - 1702310542443 : Method - GET : Path - /api/users/98
+Date - 1702310553549 : Method - GET : Path - /api/users
+Date - 1702310593098 : Method - POST : Path - /api/users
+Date - 1702310707606 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702310717032 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702310723297 : IP - ::1 : Method - GET : Path - /api/users/1002
+Date - 1702312328858 : IP - ::1 : Method - GET : Path - /api/users/1002
+Date - 1702312352018 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702312406960 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702312446024 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702312725882 : IP - ::1 : Method - GET : Path - /api/users
+Date - 1702314013776 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702314443854 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702314523068 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702314557925 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702314568316 : IP - ::1 : Method - POST : Path - /api/users
+Date - 1702314733212 : IP - ::1 : Method - POST : Path - /api/userss
+Date - 1702314776068 : IP - ::1 : Method - GET : Path - /api/users/1019
+Date - 1702314864212 : IP - ::1 : Method - GET : Path - /api/users/1019
+Date - 1702314881129 : IP - ::1 : Method - GET : Path - /api/users/1003
